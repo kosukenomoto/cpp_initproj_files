@@ -21,6 +21,9 @@ mkdir -p "$dest"
 # -v : 進捗を表示
 # --exclude='.git' : .git ディレクトリを除外
 # 末尾 / を付けることで、カレントディレクトリの「中身」だけをコピーする
-rsync -av --exclude='.git' ./ "$dest/"
+rsync -av \
+  --exclude='.git/' \
+  --exclude='build/' \
+  ./ "$dest/"
 
 echo "✅ コピー完了: $(pwd) → $dest"
